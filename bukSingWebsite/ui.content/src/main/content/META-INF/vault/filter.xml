@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/bukSingWebsite"/>
+    <filter root="/content/bukSingWebsite"/>
+    <filter root="/content/dam/bukSingWebsite"/>
+</workspaceFilter>
