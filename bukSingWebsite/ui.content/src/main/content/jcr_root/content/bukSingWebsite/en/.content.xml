@@ -1,30 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0">
-    <jcr:content>
-        <root>
-            <responsivegrid>
-                <title/>
-                <text/>
-                <image/>
-                <list/>
-                <helloworld/>
-                <container>
-                    <text/>
-                    <options>
-                        <items>
-                            <item0/>
-                            <item1/>
-                        </items>
-                    </options>
-                    <button/>
-                </container>
-                <sharing/>
-            </responsivegrid>
-        </root>
-        <image/>
-    </jcr:content>
+    <jcr:content/>
     <Home/>
-    <our-training/>
-    <about-the-class/>
+    <our_training/>
+    <about_us/>
     <contact_us/>
 </jcr:root>
