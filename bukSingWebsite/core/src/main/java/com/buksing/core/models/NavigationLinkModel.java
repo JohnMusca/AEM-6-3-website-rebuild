@@ -33,10 +33,10 @@ public class NavigationLinkModel {
       
       PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
 
-      pageManager.getPage(pagePath);
+      Page page = pageManager.getPage(pagePath);
 
-      //this.setNavigationText(pageManager.getName());
-      //this.setNavigationLink(pageManager.getPath());
+      this.setNavigationText(page.getName());
+      this.setNavigationLink(page.getPath());
     }
   }
 
