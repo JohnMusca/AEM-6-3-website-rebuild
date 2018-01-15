@@ -14,8 +14,10 @@ import org.apache.sling.api.resource.ResourceResolver;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
+import com.buksing.core.models.NavigationLinkModelInterface;
+
 @Model(adaptables=Resource.class)
-public class NavigationLinkModel {
+public class NavigationLinkModel implements NavigationLinkModelInterface{
 
   @Inject
   private ResourceResolver resourceResolver;
