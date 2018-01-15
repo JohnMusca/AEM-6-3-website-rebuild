@@ -1,1 +1,6 @@
 Navigation!
+<sly data-sly-use.listUse="com.buksing.core.models.NavigationListModel">
+  <ul data-sly-list="${listUse.links}">
+    <li><a href="${item.navigationLink}">${item.navigationText}</li>
+  </ul>
+</sly>

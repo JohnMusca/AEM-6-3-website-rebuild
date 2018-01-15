@@ -12,13 +12,25 @@ import org.apache.sling.settings.SlingSettingsService;
 
 import com.buksing.core.models.NavigationLinkModel;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 @Model(adaptables=Resource.class)
 public class NavigationListModel {
 
-  protected void init() {
+  private List <NavigationLinkModel> links;
 
+  private String parentPath = "/content/bukSingWebsite/en"; 
+
+  protected void init() {
+    links = new ArrayList<NavigationLinkModel>();
+
+    populateLinks(this.parentPath);
+  }
+
+  protected List <NavigationLinkModel> populateLinks(String parentPath) {
+    return links; 
   }
 
 }
