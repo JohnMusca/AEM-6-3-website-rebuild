@@ -22,33 +22,20 @@ public class NavigationLinkModel implements NavigationLinkModelInterface{
   @Inject
   private ResourceResolver resourceResolver;
 
+  @Inject 
+  @Named("jcr:title")
   private String navigationText;
 
-  private String navigationLink;
-
-  @PostConstruct
-  protected void init() {
-    if(resourceResolver != null) {
-      
-      this.setNavigationText(resourceResolver.getName());
-      this.setNavigationLink(resourceResolver.getPath());
-    }
-  }
-
-  private void setNavigationText(String title) {
-    this.navigationText = title;
-  }
-
-  private void setNavigationLink(String link) {
-    this.navigationLink = link;
-  }
+  @Inject
+  private String path;
 
   public String getNavigationText() {
     return navigationText;
   }
 
   public String getNavigationLink() {
-    return navigationLink;
+    return "test";
+    //return path;
   }
 
 }
