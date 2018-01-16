@@ -22,9 +22,6 @@ public class NavigationLinkModel implements NavigationLinkModelInterface{
   @Inject
   private ResourceResolver resourceResolver;
 
-  @Inject 
-  private String pagePath;
-
   private String navigationText;
 
   private String navigationLink;
@@ -33,12 +30,8 @@ public class NavigationLinkModel implements NavigationLinkModelInterface{
   protected void init() {
     if(resourceResolver != null) {
       
-      PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-
-      Page page = pageManager.getPage(pagePath);
-
-      this.setNavigationText(page.getName());
-      this.setNavigationLink(page.getPath());
+      this.setNavigationText(resourceResolver.getName());
+      this.setNavigationLink(resourceResolver.getPath());
     }
   }
 

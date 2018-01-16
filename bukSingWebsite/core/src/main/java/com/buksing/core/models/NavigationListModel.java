@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+
 @Model(adaptables=Resource.class)
 public class NavigationListModel {
 
@@ -23,23 +26,29 @@ public class NavigationListModel {
 
   @Inject
   public ResourceResolver resourceResolver;
-  
 
   private String parentPath = "/content/bukSingWebsite/en"; 
 
   @PostConstruct
   protected void init() {
-    links = new ArrayList<NavigationLinkModel>();
+    Resource parentPage = resourceResolver.getResource(parentPath);
 
     populateLinks(this.parentPath, resourceResolver);
   }
 
   protected List <NavigationLinkModel> populateLinks(String parentPath, ResourceResolver resourceResolver) {
-     
-    Resource res = resourceResolver.getResource(parentPath);
-   
-    //for each top level page, populate the list of NavigationLinkModel objects for us and return them.
+    
+    Page parentPage = resourceResolver.adaptTo(Page.class);
 
+    Iterator<Page> children = parentPage.listChildren();
+
+    //foreach child page, create a new navigationlink model and put it in our array.
+    while( children.hasNext() ) {
+      NavigationLinkModel link = children.next().adaptTo(NavigationLinkModel.class);
+      links.add(link);
+    }
+
+    //for each top level page, populate the list of NavigationLinkModel objects for us and return them.
     return links; 
   }
 
