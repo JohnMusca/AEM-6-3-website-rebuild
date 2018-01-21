@@ -33,12 +33,17 @@ public class NavigationListModel {
   protected void init() {
     Resource parentPage = resourceResolver.getResource(parentPath);
 
-    populateLinks(this.parentPath, resourceResolver);
+    links = new ArrayList<NavigationLinkModel>();
+
+    populateLinks(this.parentPath, resourceResolver, links);
   }
 
-  protected List <NavigationLinkModel> populateLinks(String parentPath, ResourceResolver resourceResolver) {
+  protected List <NavigationLinkModel> populateLinks(String parentPath, ResourceResolver resourceResolver,
+                                                     List <NavigationLinkModel> links) {
     
-    Page parentPage = resourceResolver.adaptTo(Page.class);
+    PageManager parentPageManager = resourceResolver.adaptTo(PageManager.class);
+
+    Page parentPage = parentPageManager.getContainingPage(parentPath);
 
     Iterator<Page> children = parentPage.listChildren();
 
