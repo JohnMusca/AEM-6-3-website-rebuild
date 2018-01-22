@@ -12,6 +12,9 @@ import org.apache.sling.settings.SlingSettingsService;
 
 import com.buksing.core.models.NavigationLinkModel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
@@ -24,6 +27,8 @@ public class NavigationListModel {
 
   private List <NavigationLinkModel> links;
 
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
+
   @Inject
   public ResourceResolver resourceResolver;
 
@@ -32,6 +37,8 @@ public class NavigationListModel {
   @PostConstruct
   protected void init() {
     Resource parentPage = resourceResolver.getResource(parentPath);
+
+  log.debug("in Navigation list model");
 
     links = new ArrayList<NavigationLinkModel>();
 

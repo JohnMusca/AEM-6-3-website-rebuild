@@ -16,8 +16,13 @@ import com.day.cq.wcm.api.PageManager;
 
 import com.buksing.core.models.NavigationLinkModelInterface;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Model(adaptables=Resource.class)
 public class NavigationLinkModel implements NavigationLinkModelInterface{
+
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Inject
   private ResourceResolver resourceResolver;
